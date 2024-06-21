@@ -1,13 +1,10 @@
 const express = require('express');
 const path = require('path');
 const multer = require('multer');
-const hbs = require('hbs');
 const session = require('express-session'); // Import express-session
 const app = express();
 const cron = require('node-cron');
 const axios = require('axios');
-                                                                          // fdsfsdfasdfasdfasdfasdf
-
 require('dotenv').config();
 
 const { createClient } = require('@supabase/supabase-js');
@@ -27,6 +24,10 @@ app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-enco
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Route to fetch and display data on the index page
 app.get('/', async (req, res) => {
   try {
     // Fetch users data
@@ -50,8 +51,8 @@ app.get('/', async (req, res) => {
     console.log("Fetched users data:", users); // Log the users data to the console
     console.log("Fetched athletes data:", athletes); // Log the athletes data to the console
 
-    // Render the index.hbs template with the fetched dataasdf
-    res.render('index', { users, athletes });
+    // Serve the HTML file and pass the fetched data as needed
+    res.sendFile(path.join(__dirname, 'views', 'index.html'));
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
