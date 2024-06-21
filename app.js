@@ -50,7 +50,7 @@ app.get('/', async (req, res) => {
     console.log("Fetched users data:", users); // Log the users data to the console
     console.log("Fetched athletes data:", athletes); // Log the athletes data to the console
 
-    // Render the index.hbs template with the fetched data
+    // Render the index.hbs template with the fetched dataasdf
     res.render('index', { users, athletes });
   } catch (error) {
     res.status(500).json({ error: error.message });
