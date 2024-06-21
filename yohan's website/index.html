@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yohan Dimla - BSIT Student</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#overview" class="nav-link">Overview</a>
+            <a href="#links" class="nav-link">Relevant Links</a>
+            <a href="#resume" class="nav-link">Resume</a>
+        </nav>
+    </header>
+    <div id="overview" class="section">
+        <div class="container">
+            <div class="left">
+                <h1>Yohan Dimla</h1>
+                <p>DLSU</p>
+                <p>BS Information Technology Student</p>
+                <div class="contact-info">
+                    <p>Phone: <a href="tel:09271234730">0927-123-4730</a></p>
+                    <p>Email: <a href="mailto:yohandimla@gmail.com">yohandimla@gmail.com</a></p>
+                    <p>Address: Paranaque, Metro Manila</p>
+                    <p>
+                        <div class="nav-links">
+                            <a href="https://www.linkedin.com/in/yohan-dimla-8a65b42b5/" target="_blank">LinkedIn</a> • 
+                            <a href="https://www.facebook.com/yohan.dimla/" target="_blank">Facebook</a> • 
+                            <a href="https://www.instagram.com/polshaye/" target="_blank">Instagram</a>
+                        </div>
+                    </p>
+                </div>
+            </div>
+            <div class="right">
+                <img src="dp.jpg" alt="Yohan Dimla" class="profile-picture">
+            </div>
+        </div>
+    </div>
+    <div id="links" class="section">
+        <div class="container">
+            <div class="projects">
+                <div class="project">
+                    <div class="thumbnail">
+                        <img src="p2p.png" alt="Project 1 Thumbnail">
+                    </div>
+                    <div class="description">
+                        <a href="https://github.com/Otisc0w/MCO2-CCAPDEV-Yohan.git" target="_blank">DLSU PROF 2 PICK</a>
+                        <p>DLSU PROF 2 PICK is a web application developed to give students a community for discussion of professors in DLSU.</p>
+                    </div>
+                </div>
+                <div class="project reverse">
+                    <div class="thumbnail">
+                        <img src="mwmd.png" alt="Project 2 Thumbnail">
+                    </div>
+                    <div class="description">
+                        <a href="https://github.com/Dontyell/MOBDEVE-MP.git" target="_blank">More Weights More Dates</a>
+                        <p>More Weights More Dates is an android workout app that gives a catalogue of workouts for each muscle and helps the user track lifting progress.</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="thumbnail">
+                        <img src="aws.png" alt="Project 3 Thumbnail">
+                    </div>
+                    <div class="description">
+                        <a href="https://www.credly.com/badges/ce8b7369-8ec5-499b-a235-b6bf4823f828/public_url" target="_blank">AWS Academy Graduate - AWS Academy Cloud Foundations</a>
+                        <p>AWS Academy completion badge in the ITCMSY2 course.</p>
+                    </div>
+                </div>
+                <!-- Add more projects as needed s-->
+            </div>
+        </div>
+    </div>
+    <div id="resume" class="section">
+        <div class="container">
+            <a href="Yohan Dimla's resume.pdf" class="download-cv" download="Yohan_Dimla_Resume.pdf">Download Resume</a>
+            <!-- Add more resume details as needed -->
+        </div>
+    </div>
+    <script >
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('nav a');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 60) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(navLink => {
+                    navLink.classList.remove('active');
+                    if (navLink.getAttribute('href').includes(current)) {
+                        navLink.classList.add('active');
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>
